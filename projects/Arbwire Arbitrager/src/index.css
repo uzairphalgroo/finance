@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-heading: 'Space Grotesk', 'Syne', system-ui, -apple-system, sans-serif;
+    --font-tech: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #050608;
+    color: #f1f5f9;
+    overflow-y: scroll;
+    letter-spacing: -0.01em;
+  }
+
+  .font-mono-nums {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-tech {
+    font-family: var(--font-tech);
+  }
+}
+
+/* Custom Institutional Monochrome Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #06070a;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Institutional Quantitative Glassmorphic Cards */
+.glass-tile,
+.luxury-glass {
+  background: rgba(9, 11, 17, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-tile:hover,
+.luxury-glass:hover {
+  background: rgba(13, 17, 26, 0.92);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 
+    0 16px 40px -10px rgba(0, 0, 0, 0.75),
+    0 0 20px -2px rgba(255, 255, 255, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+/* 3D Card Interactive Tilt & Spring Motion */
+.card-3d-wrap {
+  perspective: 1000px;
+}
+
+.card-3d {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover {
+  transform: translateY(-3px) rotateX(1deg) rotateY(-0.5deg);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 20px 45px -10px rgba(0, 0, 0, 0.8), 
+    0 0 20px -3px rgba(255, 255, 255, 0.1);
+}
+
+/* Serious Institutional Text Gradients */
+.text-gradient-silver {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #a7f3d0 0%, #34d399 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Motion & Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes laserSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(250%); }
+}
+
+@keyframes priceTickUp {
+  0% { background-color: rgba(16, 185, 129, 0.3); }
+  100% { background-color: transparent; }
+}
+
+@keyframes priceTickDown {
+  0% { background-color: rgba(239, 68, 68, 0.3); }
+  100% { background-color: transparent; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-laser-sweep {
+  animation: laserSweep 2.8s infinite linear;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+.tick-flash-up {
+  animation: priceTickUp 0.6s ease-out;
+}
+
+.tick-flash-down {
+  animation: priceTickDown 0.6s ease-out;
+}

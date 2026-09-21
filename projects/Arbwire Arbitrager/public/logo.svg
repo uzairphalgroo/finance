@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05080f"/>
+      <stop offset="50%" stop-color="#090e17"/>
+      <stop offset="100%" stop-color="#020305"/>
+    </linearGradient>
+    <linearGradient id="prismGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="prismGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="prismGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="50%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#a7f3d0"/>
+    </linearGradient>
+    <linearGradient id="wireGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base with Rounded Institutional Container -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <rect x="4" y="4" width="504" height="504" rx="108" stroke="#ffffff" stroke-opacity="0.1" stroke-width="3"/>
+  <rect x="12" y="12" width="488" height="488" rx="100" stroke="#10b981" stroke-opacity="0.15" stroke-width="1.5" stroke-dasharray="8 6"/>
+
+  <!-- Dynamic Subtle Geometric Grid / Radar lines -->
+  <circle cx="256" cy="256" r="180" stroke="#ffffff" stroke-opacity="0.04" stroke-width="2"/>
+  <circle cx="256" cy="256" r="120" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1.5"/>
+  <circle cx="256" cy="256" r="60" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="256" y1="60" x2="256" y2="452" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1.5"/>
+  <line x1="60" y1="256" x2="452" y2="256" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1.5"/>
+
+  <!-- Core Isometric Triangular Delta & Arbitrage Cycle Nodes (Filter applied) -->
+  <g filter="url(#neonGlow)">
+    <!-- Triangular Cycle Flow Path -->
+    <path d="M256 96 L416 376 L96 376 Z" stroke="url(#wireGlow)" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" fill="none" opacity="0.35"/>
+    <path d="M256 96 L416 376 L96 376 Z" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none" opacity="0.6"/>
+
+    <!-- Dynamic Intersecting "A" & "W" HFT Waveforms (Arbwire monogram) -->
+    <!-- Left Leg of A -->
+    <path d="M256 112 L144 340" stroke="url(#prismGrad1)" stroke-width="22" stroke-linecap="round"/>
+    <!-- Right Leg of A -->
+    <path d="M256 112 L368 340" stroke="url(#prismGrad2)" stroke-width="22" stroke-linecap="round"/>
+    <!-- Inner Crossbar & Photon Beam -->
+    <path d="M186 260 L326 260" stroke="url(#prismGrad3)" stroke-width="16" stroke-linecap="round"/>
+
+    <!-- Central High-Frequency Lightning Wire (The "Wire" Pulse) -->
+    <path d="M256 148 L220 236 L292 236 L240 348" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#subtleShadow)"/>
+    <path d="M256 148 L220 236 L292 236 L240 348" stroke="#10b981" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 3 Triangular Graph Nodes (Binance, Coinbase, Kraken Venues) -->
+    <!-- Node 1: Top (Apex) -->
+    <circle cx="256" cy="96" r="14" fill="#05080f" stroke="#10b981" stroke-width="5"/>
+    <circle cx="256" cy="96" r="6" fill="#34d399"/>
+    <circle cx="256" cy="96" r="24" stroke="#10b981" stroke-opacity="0.3" stroke-width="2"/>
+
+    <!-- Node 2: Bottom Right -->
+    <circle cx="416" cy="376" r="14" fill="#05080f" stroke="#06b6d4" stroke-width="5"/>
+    <circle cx="416" cy="376" r="6" fill="#22d3ee"/>
+    <circle cx="416" cy="376" r="24" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="2"/>
+
+    <!-- Node 3: Bottom Left -->
+    <circle cx="96" cy="376" r="14" fill="#05080f" stroke="#3b82f6" stroke-width="5"/>
+    <circle cx="96" cy="376" r="6" fill="#60a5fa"/>
+    <circle cx="96" cy="376" r="24" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="2"/>
+  </g>
+
+  <!-- High-Precision Metric Corner Accents -->
+  <path d="M64 100 L64 64 L100 64" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+  <path d="M448 100 L448 64 L412 64" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+  <path d="M64 412 L64 448 L100 448" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+  <path d="M448 412 L448 448 L412 448" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+</svg>

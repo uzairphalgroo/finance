@@ -1,0 +1,5 @@
+# Arbwire Robots Exclusion Protocol
+User-agent: *
+Allow: /
+
+Sitemap: https://arbwire.io/sitemap.xml
