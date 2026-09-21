@@ -12,7 +12,20 @@ Arbwire is an open-source, high-performance quantitative workstation engineered 
 
 ---
 
-## 🖥️ Home Screen Dashboard Overview & UI Snippets
+## 📸 Terminal Screenshots & Visual Previews
+
+### 1. Institutional Welcome & Initialization Portal
+![Arbwire Quantum 2.0 Initialization Portal](public/screenshots/welcome-screen.png)
+
+### 2. Tactical Execution Suite & Cross-Venue Arbitrage Matrix
+![Quantitative Execution Suite & Cross-Venue Matrix](public/screenshots/tactical-matrix.png)
+
+### 3. 3D WebGL Spatial Gyroscope & Real-Time L2 Depth Ladders
+![3D WebGL Spatial Gyroscope & L2 Depth Ladders](public/screenshots/3d-gyroscope-and-depth.png)
+
+---
+
+## 🖥️ Live Architecture & Dashboard Layout
 
 Below is a schematic visual layout of the live **Arbwire Quantum 2.0** terminal:
 
