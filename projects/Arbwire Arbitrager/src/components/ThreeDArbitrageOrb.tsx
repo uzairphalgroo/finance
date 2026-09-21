@@ -759,31 +759,31 @@ export const ThreeDArbitrageOrb: React.FC<ThreeDArbitrageOrbProps> = ({ scanResu
   };
 
   return (
-    <div className="glass-tile rounded-2xl p-4.5 border border-white/10 relative overflow-hidden flex flex-col group transition-all duration-300">
+    <div className="glass-tile rounded-2xl p-3.5 sm:p-4.5 border border-white/10 relative overflow-hidden flex flex-col group transition-all duration-300">
       {/* Header Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2 z-10">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 mb-2 z-10">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/10 to-transparent border border-emerald-500/30 text-emerald-400 shadow-md">
+          <div className="p-2 rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/10 to-transparent border border-emerald-500/30 text-emerald-400 shadow-md shrink-0">
             <Compass className="w-4 h-4 animate-spin" style={{ animationDuration: '18s' }} />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <h3 className="font-tech font-bold text-sm text-white tracking-wider">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              <h3 className="font-tech font-bold text-xs sm:text-sm text-white tracking-wider">
                 3D QUANTUM SPATIAL GYROSCOPE
               </h3>
-              <span className={`px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-gradient-to-r ${SKINS[activeSkin].cssGradient} text-black uppercase shadow-sm`}>
+              <span className={`px-1.5 sm:px-2 py-0.5 rounded text-[8px] sm:text-[9px] font-mono font-bold bg-gradient-to-r ${SKINS[activeSkin].cssGradient} text-black uppercase shadow-sm`}>
                 {SKINS[activeSkin].badge}
               </span>
             </div>
-            <p className="text-[10px] font-mono text-slate-400">
-              Interactive 3-Axis WebGL Engine &bull; Textured Planetary Hologram &bull; Drag to rotate
+            <p className="text-[9px] sm:text-[10px] font-mono text-slate-400">
+              Interactive 3-Axis WebGL Engine &bull; Touch / Drag to rotate &bull; Pinch to zoom
             </p>
           </div>
         </div>
 
         {/* 3D Visual Controls & Skin Switcher */}
-        <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-mono">
-          <div className="flex items-center gap-1 p-0.5 rounded-lg bg-black/60 border border-white/15">
+        <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 text-[9px] sm:text-[10px] font-mono">
+          <div className="flex items-center gap-0.5 p-0.5 rounded-lg bg-black/60 border border-white/15 touch-scroll-x no-scrollbar">
             {(Object.keys(SKINS) as OrbSkinId[]).map((skinKey) => {
               const s = SKINS[skinKey];
               const isSelected = activeSkin === skinKey;
@@ -791,7 +791,7 @@ export const ThreeDArbitrageOrb: React.FC<ThreeDArbitrageOrbProps> = ({ scanResu
                 <button
                   key={skinKey}
                   onClick={() => setActiveSkin(skinKey)}
-                  className={`px-2 py-1 rounded text-[10px] font-bold transition-all cursor-pointer ${
+                  className={`px-1.5 sm:px-2 py-1 rounded text-[9px] sm:text-[10px] font-bold transition-all cursor-pointer whitespace-nowrap ${
                     isSelected
                       ? 'bg-white text-black shadow-sm font-extrabold'
                       : 'text-slate-400 hover:text-white hover:bg-white/5'
@@ -806,7 +806,7 @@ export const ThreeDArbitrageOrb: React.FC<ThreeDArbitrageOrbProps> = ({ scanResu
 
           <button
             onClick={() => setWireframeMode(!wireframeMode)}
-            className={`px-2 py-1 rounded-lg border transition-all flex items-center gap-1 cursor-pointer font-bold ${
+            className={`px-1.5 sm:px-2 py-1 rounded-lg border transition-all flex items-center gap-1 cursor-pointer font-bold ${
               wireframeMode
                 ? 'bg-cyan-500/20 border-cyan-400/60 text-cyan-300'
                 : 'bg-black/60 border-white/15 text-slate-400 hover:text-white'
@@ -814,12 +814,12 @@ export const ThreeDArbitrageOrb: React.FC<ThreeDArbitrageOrbProps> = ({ scanResu
             title="Toggle Holographic Wireframe Shader"
           >
             <Layers className="w-3 h-3" />
-            <span>{wireframeMode ? 'WIRED' : 'SKINNED'}</span>
+            <span>{wireframeMode ? 'WIRED' : 'SKIN'}</span>
           </button>
 
           <button
             onClick={() => setAutoRotate(!autoRotate)}
-            className={`px-2 py-1 rounded-lg border transition-all flex items-center gap-1 cursor-pointer font-bold ${
+            className={`px-1.5 sm:px-2 py-1 rounded-lg border transition-all flex items-center gap-1 cursor-pointer font-bold ${
               autoRotate
                 ? 'bg-emerald-500/20 border-emerald-400/60 text-emerald-300'
                 : 'bg-black/60 border-white/15 text-slate-400 hover:text-white'
@@ -832,7 +832,7 @@ export const ThreeDArbitrageOrb: React.FC<ThreeDArbitrageOrbProps> = ({ scanResu
 
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="p-1.5 rounded-lg bg-black/60 border border-white/15 text-slate-400 hover:text-white hover:border-white/30 transition-all cursor-pointer"
+            className="p-1 sm:p-1.5 rounded-lg bg-black/60 border border-white/15 text-slate-400 hover:text-white hover:border-white/30 transition-all cursor-pointer"
             title={isExpanded ? 'Collapse View' : 'Expand View'}
           >
             {isExpanded ? <Minimize2 className="w-3 h-3" /> : <Maximize2 className="w-3 h-3" />}
@@ -844,25 +844,25 @@ export const ThreeDArbitrageOrb: React.FC<ThreeDArbitrageOrbProps> = ({ scanResu
       <div
         ref={mountRef}
         className={`relative w-full ${
-          isExpanded ? 'h-96' : 'h-64'
+          isExpanded ? 'h-80 sm:h-96' : 'h-56 sm:h-64'
         } flex items-center justify-center cursor-grab active:cursor-grabbing select-none bg-gradient-to-b from-[#040814] via-[#02050c] to-[#010206] rounded-xl border border-white/[0.08] overflow-hidden shadow-inner transition-all duration-300`}
       >
         {/* Top-Left Telemetry & HUD */}
-        <div className="absolute top-2.5 left-3 flex flex-col gap-1.5 pointer-events-none z-10 text-[10px] font-mono">
+        <div className="absolute top-2 left-2.5 sm:top-2.5 sm:left-3 flex flex-col gap-1 pointer-events-none z-10 text-[9px] sm:text-[10px] font-mono">
           <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/70 border border-white/15 text-slate-200 backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span className="font-bold">WEBGL 3D SPATIAL ENGINE</span>
+            <span className="font-bold">WEBGL 3D</span>
           </div>
 
-          <div className="flex items-center gap-2 text-[9px] text-slate-400">
+          <div className="flex items-center gap-1.5 text-[8px] sm:text-[9px] text-slate-400">
             <span>ZOOM: {(10 - targetDistance).toFixed(1)}x</span>
             <span>&bull;</span>
-            <span>NODES: 3 ACTIVE</span>
+            <span>3 VENUES</span>
           </div>
         </div>
 
         {/* Top-Right Venue Live Price Pills */}
-        <div className="absolute top-2.5 right-3 hidden sm:flex items-center gap-1.5 pointer-events-none z-10 text-[10px] font-mono">
+        <div className="absolute top-2.5 right-3 hidden md:flex items-center gap-1.5 pointer-events-none z-10 text-[10px] font-mono">
           <div className="flex items-center gap-1 px-2 py-0.5 rounded bg-black/70 border border-amber-500/40 text-amber-300 backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
             <span>BN: ${topBooks.binance ? topBooks.binance.ask.toLocaleString(undefined, { maximumFractionDigits: 1 }) : '---'}</span>
@@ -878,24 +878,24 @@ export const ThreeDArbitrageOrb: React.FC<ThreeDArbitrageOrbProps> = ({ scanResu
         </div>
 
         {/* Bottom-Right Zoom & Reset Floating Overlay */}
-        <div className="absolute bottom-3 right-3 flex items-center gap-1 z-10">
+        <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 flex items-center gap-1 z-10">
           <button
             onClick={() => handleZoom(-1.0)}
-            className="p-1.5 rounded-lg bg-black/80 hover:bg-slate-800 border border-white/20 text-slate-300 hover:text-white backdrop-blur-md transition-all cursor-pointer"
+            className="p-1 sm:p-1.5 rounded-lg bg-black/80 hover:bg-slate-800 border border-white/20 text-slate-300 hover:text-white backdrop-blur-md transition-all cursor-pointer"
             title="Zoom In"
           >
             <ZoomIn className="w-3.5 h-3.5" />
           </button>
           <button
             onClick={() => handleZoom(1.0)}
-            className="p-1.5 rounded-lg bg-black/80 hover:bg-slate-800 border border-white/20 text-slate-300 hover:text-white backdrop-blur-md transition-all cursor-pointer"
+            className="p-1 sm:p-1.5 rounded-lg bg-black/80 hover:bg-slate-800 border border-white/20 text-slate-300 hover:text-white backdrop-blur-md transition-all cursor-pointer"
             title="Zoom Out"
           >
             <ZoomOut className="w-3.5 h-3.5" />
           </button>
           <button
             onClick={handleResetCamera}
-            className="p-1.5 rounded-lg bg-black/80 hover:bg-slate-800 border border-white/20 text-slate-300 hover:text-white backdrop-blur-md transition-all cursor-pointer"
+            className="p-1 sm:p-1.5 rounded-lg bg-black/80 hover:bg-slate-800 border border-white/20 text-slate-300 hover:text-white backdrop-blur-md transition-all cursor-pointer"
             title="Reset Camera View"
           >
             <RefreshCw className="w-3.5 h-3.5" />
@@ -904,19 +904,19 @@ export const ThreeDArbitrageOrb: React.FC<ThreeDArbitrageOrbProps> = ({ scanResu
 
         {/* Active Arbitrage Laser Vector HUD Banner */}
         {bestOpp && (
-          <div className="absolute bottom-2.5 left-3 max-w-[calc(100%-110px)] sm:max-w-none flex items-center justify-between gap-3 px-3 py-1.5 rounded-xl bg-black/85 border border-white/15 backdrop-blur-md text-[11px] font-mono pointer-events-none z-10 shadow-lg">
-            <div className="flex items-center gap-2">
-              <Zap className="w-3.5 h-3.5 text-emerald-400 animate-pulse flex-shrink-0" />
-              <span className="text-slate-300 whitespace-nowrap">
-                Laser Route: <strong className="text-cyan-300 capitalize">{bestOpp.buyExchange}</strong> &rarr; <strong className="text-emerald-300 capitalize">{bestOpp.sellExchange}</strong>
+          <div className="absolute bottom-2 left-2 max-w-[calc(100%-115px)] flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-3 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-black/90 border border-white/15 backdrop-blur-md text-[10px] sm:text-[11px] font-mono pointer-events-none z-10 shadow-lg">
+            <div className="flex items-center gap-1.5 sm:gap-2 truncate">
+              <Zap className="w-3.5 h-3.5 text-emerald-400 animate-pulse shrink-0" />
+              <span className="text-slate-300 truncate">
+                <strong className="text-cyan-300 capitalize">{bestOpp.buyExchange}</strong> &rarr; <strong className="text-emerald-300 capitalize">{bestOpp.sellExchange}</strong>
               </span>
             </div>
             <span
-              className={`font-bold font-mono-nums whitespace-nowrap ${
+              className={`font-bold font-mono-nums shrink-0 ${
                 bestOpp.netSpreadPct >= 0.15 ? 'text-emerald-400' : 'text-cyan-300'
               }`}
             >
-              +{bestOpp.netSpreadPct.toFixed(3)}% NET (${bestOpp.netProfitUSD.toFixed(2)})
+              +{bestOpp.netSpreadPct.toFixed(3)}% (+${bestOpp.netProfitUSD.toFixed(2)})
             </span>
           </div>
         )}

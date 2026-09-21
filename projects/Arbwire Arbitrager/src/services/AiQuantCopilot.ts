@@ -189,11 +189,12 @@ You have access to live WebSocket order book streams from Binance, Coinbase, and
 Answer user questions concisely, precisely, and with quantitative rigor. Use terms like TOB, VWAP slippage, OBI, VPIN, Bellman-Ford negative cycles, and ring buffers. Keep answers focused and actionable.`;
 
     try {
+      const apiKey = this.getApiKey();
       const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${this.OPENROUTER_API_KEY}`,
+          Authorization: `Bearer ${apiKey}`,
           'HTTP-Referer': 'https://arbwire.quant',
           'X-Title': 'Arbwire Quant Terminal',
         },

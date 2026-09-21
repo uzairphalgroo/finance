@@ -155,44 +155,44 @@ export const OpportunityLog: React.FC<OpportunityLogProps> = ({
   };
 
   return (
-    <div className="glass-tile rounded-2xl border border-white/10 p-5 space-y-4">
+    <div className="glass-tile rounded-2xl border border-white/10 p-3.5 sm:p-5 space-y-3 sm:space-y-4">
       {/* Header Bar */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 text-cyan-400 shadow-sm">
-            <History className="w-5 h-5" />
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="p-2 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 text-cyan-400 shadow-sm shrink-0">
+            <History className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
           <div>
-            <div className="flex flex-wrap items-center gap-2">
-              <h3 className="font-tech font-bold text-sm text-white tracking-wider">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              <h3 className="font-tech font-bold text-xs sm:text-sm text-white tracking-wider">
                 DISCREPANCY CAPTURE AUDIT TRAIL
               </h3>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-white/10 text-slate-200 border border-white/15">
-                {opportunities.length} Events Total
+              <span className="px-1.5 sm:px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-mono font-bold bg-white/10 text-slate-200 border border-white/15">
+                {opportunities.length} Events
               </span>
               {savedCount > 0 && (
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                <span className="px-1.5 sm:px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                   {savedCount} Saved
                 </span>
               )}
               {unsavedCount > 0 && (
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">
+                <span className="px-1.5 sm:px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">
                   {unsavedCount} Unsaved
                 </span>
               )}
             </div>
-            <p className="text-[10px] font-mono text-slate-400">
+            <p className="text-[9px] sm:text-[10px] font-mono text-slate-400">
               Autonomous snapshot intervals &bull; Chronological execution &amp; dislocation journal
             </p>
           </div>
         </div>
 
         {/* Autonomous Capture Control & Interval Selector */}
-        <div className="flex flex-wrap items-center gap-2.5">
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950/90 border border-white/15 shadow-inner">
-            <div className="flex items-center gap-1 px-2 text-[11px] font-mono font-bold text-slate-300">
+        <div className="flex items-center gap-2 w-full lg:w-auto overflow-x-auto touch-scroll-x no-scrollbar">
+          <div className="flex items-center gap-1 sm:gap-1.5 p-1 rounded-xl bg-slate-950/90 border border-white/15 shadow-inner shrink-0">
+            <div className="flex items-center gap-1 px-1.5 sm:px-2 text-[10px] sm:text-[11px] font-mono font-bold text-slate-300 shrink-0">
               <Clock className={`w-3.5 h-3.5 ${autoCapturePeriod !== 'off' ? 'text-emerald-400 animate-spin' : 'text-slate-400'}`} style={{ animationDuration: '8s' }} />
-              <span className="hidden sm:inline">Auto Interval:</span>
+              <span className="hidden sm:inline">Auto:</span>
             </div>
             {PERIOD_CONFIGS.map((period) => {
               const isActive = autoCapturePeriod === period.value;
@@ -200,7 +200,7 @@ export const OpportunityLog: React.FC<OpportunityLogProps> = ({
                 <button
                   key={period.value}
                   onClick={() => onPeriodChange?.(period.value)}
-                  className={`px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold transition-all cursor-pointer ${
+                  className={`px-2 sm:px-2.5 py-1 rounded-lg text-[9px] sm:text-[10px] font-mono font-bold transition-all cursor-pointer whitespace-nowrap ${
                     isActive
                       ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-black font-extrabold shadow-md shadow-emerald-500/20 scale-105'
                       : 'text-slate-400 hover:text-white hover:bg-white/5'
@@ -295,15 +295,15 @@ export const OpportunityLog: React.FC<OpportunityLogProps> = ({
       )}
 
       {/* Filter and Action Controls Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 pt-1">
         {/* Pair Filter Chips & Status Filter */}
-        <div className="flex flex-wrap items-center gap-2">
-          <div className="inline-flex p-1 rounded-xl bg-slate-950/80 border border-white/10 text-[10px] font-mono">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+          <div className="inline-flex p-0.5 sm:p-1 rounded-xl bg-slate-950/80 border border-white/10 text-[9px] sm:text-[10px] font-mono touch-scroll-x no-scrollbar">
             {['ALL', 'BTC/USDT', 'ETH/USDT', 'SOL/USDT', 'AVAX/USDT'].map((p) => (
               <button
                 key={p}
                 onClick={() => setFilterPair(p)}
-                className={`px-2.5 py-1 rounded-lg transition-all font-bold cursor-pointer ${
+                className={`px-2 sm:px-2.5 py-1 rounded-lg transition-all font-bold cursor-pointer whitespace-nowrap ${
                   filterPair === p
                     ? 'bg-white text-black shadow-sm'
                     : 'text-slate-400 hover:text-white'
@@ -314,7 +314,7 @@ export const OpportunityLog: React.FC<OpportunityLogProps> = ({
             ))}
           </div>
 
-          <div className="inline-flex p-1 rounded-xl bg-slate-950/80 border border-white/10 text-[10px] font-mono">
+          <div className="inline-flex p-0.5 sm:p-1 rounded-xl bg-slate-950/80 border border-white/10 text-[9px] sm:text-[10px] font-mono touch-scroll-x no-scrollbar">
             {[
               { id: 'ALL', label: 'All' },
               { id: 'SAVED', label: `Saved (${savedCount})` },
@@ -324,7 +324,7 @@ export const OpportunityLog: React.FC<OpportunityLogProps> = ({
               <button
                 key={st.id}
                 onClick={() => setFilterStatus(st.id as any)}
-                className={`px-2 py-1 rounded-lg transition-all font-bold cursor-pointer ${
+                className={`px-1.5 sm:px-2 py-1 rounded-lg transition-all font-bold cursor-pointer whitespace-nowrap ${
                   filterStatus === st.id
                     ? 'bg-cyan-500/30 text-cyan-300 border border-cyan-500/50'
                     : 'text-slate-400 hover:text-slate-200'
@@ -337,66 +337,66 @@ export const OpportunityLog: React.FC<OpportunityLogProps> = ({
         </div>
 
         {/* Buttons for Snapshot, Export and Clear */}
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 self-end sm:self-auto">
           {onCaptureSample && (
             <button
               onClick={onCaptureSample}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500/20 to-teal-500/20 hover:from-emerald-500/30 hover:to-teal-500/30 border border-emerald-500/40 text-xs font-mono text-emerald-300 font-bold transition-all cursor-pointer active:scale-95 shadow-sm"
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500/20 to-teal-500/20 hover:from-emerald-500/30 hover:to-teal-500/30 border border-emerald-500/40 text-[11px] sm:text-xs font-mono text-emerald-300 font-bold transition-all cursor-pointer active:scale-95 shadow-sm"
               title="Capture instantaneous market snapshot into audit log"
             >
               <Zap className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Capture Snapshot Now</span>
+              <span>Snapshot</span>
             </button>
           )}
 
           <button
             onClick={exportCSV}
             disabled={opportunities.length === 0}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-900 disabled:opacity-40 disabled:cursor-not-allowed border border-white/15 text-xs font-mono text-slate-200 font-bold transition-all shadow-sm cursor-pointer"
+            className="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-900 disabled:opacity-40 disabled:cursor-not-allowed border border-white/15 text-[11px] sm:text-xs font-mono text-slate-200 font-bold transition-all shadow-sm cursor-pointer"
             title="Export CSV"
           >
             <Download className="w-3.5 h-3.5 text-slate-300" />
-            <span className="hidden sm:inline">CSV</span>
+            <span>CSV</span>
           </button>
 
           <button
             onClick={exportJSON}
             disabled={opportunities.length === 0}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-900 disabled:opacity-40 disabled:cursor-not-allowed border border-white/15 text-xs font-mono text-slate-200 font-bold transition-all shadow-sm cursor-pointer"
+            className="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-900 disabled:opacity-40 disabled:cursor-not-allowed border border-white/15 text-[11px] sm:text-xs font-mono text-slate-200 font-bold transition-all shadow-sm cursor-pointer"
             title="Export JSON"
           >
             <FileJson className="w-3.5 h-3.5 text-slate-300" />
-            <span className="hidden sm:inline">JSON</span>
+            <span>JSON</span>
           </button>
 
           <button
             onClick={onClear}
             disabled={opportunities.length === 0}
-            className="p-2 rounded-xl bg-slate-950 hover:bg-slate-900 disabled:opacity-40 disabled:cursor-not-allowed border border-white/10 text-slate-400 hover:text-rose-400 transition-all cursor-pointer"
+            className="p-1.5 sm:p-2 rounded-xl bg-slate-950 hover:bg-slate-900 disabled:opacity-40 disabled:cursor-not-allowed border border-white/10 text-slate-400 hover:text-rose-400 transition-all cursor-pointer"
             title="Clear All Opportunity Log Entries"
           >
-            <Trash2 className="w-4 h-4" />
+            <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
         </div>
       </div>
 
       {/* Table Area */}
-      <div className="overflow-x-auto max-h-80 overflow-y-auto rounded-xl border border-white/10 bg-black/70">
+      <div className="overflow-x-auto touch-scroll-x max-h-80 overflow-y-auto rounded-xl border border-white/10 bg-black/70">
         {filteredOpps.length === 0 ? (
-          <div className="py-12 text-center text-xs font-mono text-slate-400 flex flex-col items-center justify-center gap-3">
-            <ShieldCheck className="w-8 h-8 text-slate-500" />
+          <div className="py-10 sm:py-12 px-4 text-center text-xs font-mono text-slate-400 flex flex-col items-center justify-center gap-3">
+            <ShieldCheck className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500" />
             <div className="max-w-md space-y-2">
               <p className="font-bold text-slate-200">No Dislocation Events Match Filters</p>
-              <p className="text-[11px] text-slate-400">
+              <p className="text-[10px] sm:text-[11px] text-slate-400">
                 {autoCapturePeriod !== 'off'
                   ? `Autonomous capture is active (${currentPeriodConfig?.label}). Next snapshot in ${formatCountdown(secondsRemaining)}.`
-                  : 'Select an auto-capture interval above or click "Capture Snapshot Now" to record instantaneous market spreads.'}
+                  : 'Select an auto-capture interval above or click "Snapshot" to record instantaneous market spreads.'}
               </p>
               {onCaptureSample && (
                 <div className="pt-2">
                   <button
                     onClick={onCaptureSample}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-200 text-black font-bold text-xs cursor-pointer shadow-md transition-all active:scale-95"
+                    className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl bg-white hover:bg-slate-200 text-black font-bold text-xs cursor-pointer shadow-md transition-all active:scale-95"
                   >
                     <Zap className="w-3.5 h-3.5 text-black" />
                     <span>Capture Current Market Snapshot</span>
@@ -406,7 +406,7 @@ export const OpportunityLog: React.FC<OpportunityLogProps> = ({
             </div>
           </div>
         ) : (
-          <table className="w-full text-left text-xs font-mono">
+          <table className="w-full min-w-[700px] text-left text-xs font-mono">
             <thead className="sticky top-0 bg-[#0d0f17] border-b border-white/15 text-slate-400 uppercase text-[10px] z-10">
               <tr>
                 <th className="py-3 px-3 font-bold">Timestamp</th>

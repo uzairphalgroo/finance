@@ -44,37 +44,37 @@ export const ConfigModal: React.FC<ConfigModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="w-full max-w-2xl rounded-2xl bg-[#08090e] border border-white/20 p-6 shadow-2xl space-y-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="w-full max-w-2xl rounded-2xl bg-[#08090e] border border-white/20 p-4 sm:p-6 shadow-2xl space-y-4 sm:space-y-6 max-h-[90vh] flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/10">
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-white/10 border border-white/20 text-white">
-              <Zap className="w-5 h-5 text-emerald-400" />
+        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="p-2 sm:p-2.5 rounded-xl bg-white/10 border border-white/20 text-white">
+              <Zap className="w-4 h-4 sm:w-5 h-5 text-emerald-400" />
             </div>
             <div>
-              <h2 className="font-tech font-bold text-lg text-white">ENGINE CONFIGURATION PARAMETERS</h2>
-              <p className="text-xs font-mono text-slate-400">Configure actionable thresholds, depth slippage, and fee tiers</p>
+              <h2 className="font-tech font-bold text-base sm:text-lg text-white">ENGINE CONFIGURATION</h2>
+              <p className="text-[11px] sm:text-xs font-mono text-slate-400">Configure actionable thresholds, depth slippage, and fee tiers</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white transition-all border border-white/10"
+            className="p-1.5 sm:p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white transition-all border border-white/10"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 h-5" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="space-y-5 max-h-[60vh] overflow-y-auto pr-1">
+        <div className="space-y-4 sm:space-y-5 overflow-y-auto pr-1 flex-1">
           {/* 1. Actionable Spread Trigger */}
           <div className="space-y-2">
             <div className="flex justify-between items-center text-xs font-mono">
               <span className="text-slate-200 font-bold flex items-center gap-1.5">
-                <Zap className="w-4 h-4 text-emerald-400" />
+                <Zap className="w-4 h-4 text-emerald-400 shrink-0" />
                 Actionable Spread Discrepancy Trigger
               </span>
-              <span className="text-emerald-400 font-black font-mono-nums text-base">
+              <span className="text-emerald-400 font-black font-mono-nums text-sm sm:text-base">
                 {threshold.toFixed(2)}% ({(threshold * 100).toFixed(0)} bps)
               </span>
             </div>
@@ -96,14 +96,14 @@ export const ConfigModal: React.FC<ConfigModalProps> = ({
           <div className="space-y-2">
             <div className="flex justify-between items-center text-xs font-mono">
               <span className="text-slate-200 font-bold flex items-center gap-1.5">
-                <DollarSign className="w-4 h-4 text-slate-300" />
+                <DollarSign className="w-4 h-4 text-slate-300 shrink-0" />
                 Simulated Execution Notional Sizing
               </span>
-              <span className="text-white font-black font-mono-nums text-base">
+              <span className="text-white font-black font-mono-nums text-sm sm:text-base">
                 ${orderSize.toLocaleString()} USD
               </span>
             </div>
-            <div className="grid grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {[1000, 10000, 50000, 100000].map((val) => (
                 <button
                   key={val}
@@ -127,12 +127,12 @@ export const ConfigModal: React.FC<ConfigModalProps> = ({
           {/* 3. Fee Tiers */}
           <div className="space-y-2 pt-2 border-t border-white/10">
             <span className="text-xs font-mono text-slate-200 font-bold flex items-center gap-1.5">
-              <Shield className="w-4 h-4 text-slate-300" />
+              <Shield className="w-4 h-4 text-slate-300 shrink-0" />
               Venue Fee Tiers (Basis Points)
             </span>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
               {(['binance', 'coinbase', 'kraken'] as ExchangeId[]).map((ex) => (
-                <div key={ex} className="p-3.5 rounded-2xl bg-black border border-white/10 space-y-2">
+                <div key={ex} className="p-3 sm:p-3.5 rounded-2xl bg-black border border-white/10 space-y-2">
                   <div className="text-xs font-mono font-black capitalize text-white">{ex}</div>
                   <div>
                     <label className="text-[10px] text-slate-400 uppercase font-mono block font-bold">Taker Fee (bps)</label>
@@ -157,10 +157,10 @@ export const ConfigModal: React.FC<ConfigModalProps> = ({
           {/* 4. Queue Capacity */}
           <div className="space-y-2 pt-2 border-t border-white/10">
             <span className="text-xs font-mono text-slate-200 font-bold flex items-center gap-1.5">
-              <Cpu className="w-4 h-4 text-slate-300" />
+              <Cpu className="w-4 h-4 text-slate-300 shrink-0" />
               L1 Ring Buffer Queue Capacity
             </span>
-            <div className="p-3.5 rounded-2xl bg-black border border-white/10 space-y-1">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-black border border-white/10 space-y-1">
               <label className="text-[11px] text-slate-300 font-mono font-semibold">RingBuffer Capacity (Slots)</label>
               <input
                 type="number"
@@ -174,25 +174,25 @@ export const ConfigModal: React.FC<ConfigModalProps> = ({
         </div>
 
         {/* Actions */}
-        <div className="flex items-center justify-between pt-4 border-t border-white/10">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-3 sm:pt-4 border-t border-white/10 shrink-0">
           <button
             onClick={handleResetDefaults}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-slate-400 hover:text-white text-xs font-mono transition-all border border-white/10 cursor-pointer"
+            className="flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-slate-400 hover:text-white text-xs font-mono transition-all border border-white/10 cursor-pointer order-2 sm:order-1"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             <span>Reset Defaults</span>
           </button>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2 order-1 sm:order-2">
             <button
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-mono transition-all cursor-pointer"
+              className="flex-1 sm:flex-initial px-4 py-2 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-mono transition-all cursor-pointer text-center"
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
-              className="px-6 py-2.5 rounded-xl bg-white hover:bg-slate-200 text-black font-bold text-xs font-mono transition-all cursor-pointer shadow-md"
+              className="flex-1 sm:flex-initial px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-white hover:bg-slate-200 text-black font-bold text-xs font-mono transition-all cursor-pointer shadow-md text-center"
             >
               Apply Parameters
             </button>

@@ -43,19 +43,19 @@ export const TacticalQuantWidgets: React.FC<TacticalQuantWidgetsProps> = ({
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
       {/* 1. Autonomous Bot Mini Dashboard */}
-      <div className="glass-tile rounded-2xl p-4 border border-white/15 flex flex-col justify-between gap-3 shadow-lg relative overflow-hidden">
+      <div className="glass-tile rounded-2xl p-3.5 sm:p-4 border border-white/15 flex flex-col justify-between gap-2.5 sm:gap-3 shadow-lg relative overflow-hidden">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30">
+            <div className="p-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30 shrink-0">
               <Bot className="w-4 h-4" />
             </div>
             <span className="font-tech font-bold text-xs text-white">AUTONOMOUS BOT</span>
           </div>
           <button
             onClick={toggleBot}
-            className={`px-2.5 py-1 rounded-lg font-mono text-[10px] font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`px-2 sm:px-2.5 py-1 rounded-lg font-mono text-[10px] font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
               botConfig.autoExecute
                 ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 animate-pulse'
                 : 'bg-slate-800 text-slate-400 border border-white/10 hover:text-white'
@@ -68,14 +68,14 @@ export const TacticalQuantWidgets: React.FC<TacticalQuantWidgetsProps> = ({
 
         <div className="grid grid-cols-2 gap-2 font-mono text-xs">
           <div className="p-2 rounded-xl bg-black/50 border border-white/5">
-            <span className="text-[10px] text-slate-400 block">Total Equity</span>
-            <span className="font-mono-nums font-bold text-white">
+            <span className="text-[9px] sm:text-[10px] text-slate-400 block">Total Equity</span>
+            <span className="font-mono-nums font-bold text-white text-xs truncate block">
               ${portfolioBalance.totalEquityUSD.toLocaleString('en-US', { minimumFractionDigits: 2 })}
             </span>
           </div>
           <div className="p-2 rounded-xl bg-black/50 border border-white/5">
-            <span className="text-[10px] text-slate-400 block">Net PnL</span>
-            <span className={`font-mono-nums font-bold ${pnl >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+            <span className="text-[9px] sm:text-[10px] text-slate-400 block">Net PnL</span>
+            <span className={`font-mono-nums font-bold text-xs truncate block ${pnl >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
               {pnlFormatted}
             </span>
           </div>
@@ -91,10 +91,10 @@ export const TacticalQuantWidgets: React.FC<TacticalQuantWidgetsProps> = ({
       </div>
 
       {/* 2. Triangular Arbitrage Scanner Top Alert */}
-      <div className="glass-tile rounded-2xl p-4 border border-white/15 flex flex-col justify-between gap-3 shadow-lg">
+      <div className="glass-tile rounded-2xl p-3.5 sm:p-4 border border-white/15 flex flex-col justify-between gap-2.5 sm:gap-3 shadow-lg">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+            <div className="p-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shrink-0">
               <Layers className="w-4 h-4" />
             </div>
             <span className="font-tech font-bold text-xs text-white">TRIANGULAR SCANNER</span>
@@ -110,8 +110,8 @@ export const TacticalQuantWidgets: React.FC<TacticalQuantWidgetsProps> = ({
               {topTri.executionPathStr}
             </div>
             <div className="flex items-center justify-between p-1.5 rounded-lg bg-black/50 border border-white/5">
-              <span className="text-[10px] text-slate-400">Net Yield:</span>
-              <span className="text-xs font-mono-nums font-bold text-emerald-400">
+              <span className="text-[9px] sm:text-[10px] text-slate-400">Net Yield:</span>
+              <span className="text-[11px] sm:text-xs font-mono-nums font-bold text-emerald-400">
                 +{topTri.netSpreadBps.toFixed(1)} bps (+${topTri.netProfitUSD.toFixed(2)})
               </span>
             </div>
@@ -142,10 +142,10 @@ export const TacticalQuantWidgets: React.FC<TacticalQuantWidgetsProps> = ({
       </div>
 
       {/* 3. Microstructure Alpha & Imbalance (OBI) */}
-      <div className="glass-tile rounded-2xl p-4 border border-white/15 flex flex-col justify-between gap-3 shadow-lg">
+      <div className="glass-tile rounded-2xl p-3.5 sm:p-4 border border-white/15 flex flex-col justify-between gap-2.5 sm:gap-3 shadow-lg">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-violet-500/20 text-violet-300 border border-violet-500/30">
+            <div className="p-1.5 rounded-lg bg-violet-500/20 text-violet-300 border border-violet-500/30 shrink-0">
               <Gauge className="w-4 h-4" />
             </div>
             <span className="font-tech font-bold text-xs text-white">ORDER BOOK IMBALANCE</span>
@@ -155,7 +155,7 @@ export const TacticalQuantWidgets: React.FC<TacticalQuantWidgetsProps> = ({
           </span>
         </div>
 
-        <div className="space-y-1.5 font-mono text-[10px]">
+        <div className="space-y-1 font-mono text-[10px]">
           {microstructureMetrics.slice(0, 3).map((m) => {
             const isBullish = m.top5Imbalance > 0;
             return (
@@ -187,16 +187,16 @@ export const TacticalQuantWidgets: React.FC<TacticalQuantWidgetsProps> = ({
       </div>
 
       {/* 4. OpenRouter AI Quant Copilot Diagnostic */}
-      <div className="glass-tile rounded-2xl p-4 border border-emerald-500/30 flex flex-col justify-between gap-3 shadow-lg bg-gradient-to-b from-emerald-950/20 to-black/60">
+      <div className="glass-tile rounded-2xl p-3.5 sm:p-4 border border-emerald-500/30 flex flex-col justify-between gap-2.5 sm:gap-3 shadow-lg bg-gradient-to-b from-emerald-950/20 to-black/60">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+            <div className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shrink-0">
               <Sparkles className="w-4 h-4 text-emerald-400 animate-pulse" />
             </div>
             <span className="font-tech font-bold text-xs text-white">AI QUANT COPILOT</span>
           </div>
           <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">
-            OpenRouter LLM
+            OpenRouter
           </span>
         </div>
 

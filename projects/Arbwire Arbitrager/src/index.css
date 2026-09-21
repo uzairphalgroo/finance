@@ -47,6 +47,21 @@
   background: #52525b;
 }
 
+/* Touch-optimized horizontal scrolling */
+.touch-scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Institutional Quantitative Glassmorphic Cards */
 .glass-tile,
 .luxury-glass {

@@ -110,63 +110,63 @@ export const OrderBookDepth: React.FC<OrderBookDepthProps> = ({ books }) => {
   };
 
   return (
-    <div className="glass-tile rounded-2xl border border-white/10 p-5">
-      <div className="flex items-center justify-between mb-4">
+    <div className="glass-tile rounded-2xl border border-white/10 p-3.5 sm:p-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 sm:mb-4">
         <div className="flex items-center gap-2.5">
-          <div className="p-1.5 rounded-lg bg-white/10 text-white">
+          <div className="p-1.5 rounded-lg bg-white/10 text-white shrink-0">
             <BookOpen className="w-4 h-4" />
           </div>
           <div>
-            <h3 className="font-tech font-bold text-sm text-slate-100 tracking-wider">
+            <h3 className="font-tech font-bold text-xs sm:text-sm text-slate-100 tracking-wider">
               DUAL-VENUE L2 DEPTH LADDERS
             </h3>
-            <p className="text-[10px] font-mono text-slate-400">
+            <p className="text-[9px] sm:text-[10px] font-mono text-slate-400">
               Side-by-Side Level 2 Order Book &amp; Spread Heatmaps
             </p>
           </div>
         </div>
-        <span className="text-xs font-mono text-emerald-400 font-bold">
+        <span className="text-[11px] sm:text-xs font-mono text-emerald-400 font-bold self-end sm:self-auto">
           Heatmap Active
         </span>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
         {/* Left Venue Ladder */}
-        <div className="rounded-2xl bg-black/80 border border-white/10 p-4 shadow-inner">
-          <div className="flex items-center justify-between pb-2.5 mb-2 border-b border-white/[0.08]">
+        <div className="rounded-2xl bg-black/80 border border-white/10 p-3 sm:p-4 shadow-inner">
+          <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/[0.08]">
             <div className="flex items-center gap-2">
               <span className="text-xs font-mono font-bold text-slate-300">Venue 1:</span>
               <select
                 value={selectedExchange}
                 onChange={(e) => setSelectedExchange(e.target.value as ExchangeId)}
-                className="bg-slate-900 border border-white/20 text-xs font-mono rounded-xl px-3 py-1 text-white focus:outline-none focus:border-white font-bold"
+                className="bg-slate-900 border border-white/20 text-xs font-mono rounded-xl px-2.5 py-1 text-white focus:outline-none focus:border-white font-bold"
               >
                 {exchanges.map((ex) => (
                   <option key={ex.id} value={ex.id}>{ex.name}</option>
                 ))}
               </select>
             </div>
-            <span className="text-[10px] font-mono text-emerald-400 font-black">L2 STREAM</span>
+            <span className="text-[9px] sm:text-[10px] font-mono text-emerald-400 font-black">L2 STREAM</span>
           </div>
           {renderLadder(selectedExchange)}
         </div>
 
         {/* Right Venue Ladder */}
-        <div className="rounded-2xl bg-black/80 border border-white/10 p-4 shadow-inner">
-          <div className="flex items-center justify-between pb-2.5 mb-2 border-b border-white/[0.08]">
+        <div className="rounded-2xl bg-black/80 border border-white/10 p-3 sm:p-4 shadow-inner">
+          <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/[0.08]">
             <div className="flex items-center gap-2">
               <span className="text-xs font-mono font-bold text-slate-300">Venue 2:</span>
               <select
                 value={comparisonExchange}
                 onChange={(e) => setComparisonExchange(e.target.value as ExchangeId)}
-                className="bg-slate-900 border border-white/20 text-xs font-mono rounded-xl px-3 py-1 text-white focus:outline-none focus:border-white font-bold"
+                className="bg-slate-900 border border-white/20 text-xs font-mono rounded-xl px-2.5 py-1 text-white focus:outline-none focus:border-white font-bold"
               >
                 {exchanges.map((ex) => (
                   <option key={ex.id} value={ex.id}>{ex.name}</option>
                 ))}
               </select>
             </div>
-            <span className="text-[10px] font-mono text-emerald-400 font-black">L2 STREAM</span>
+            <span className="text-[9px] sm:text-[10px] font-mono text-emerald-400 font-black">L2 STREAM</span>
           </div>
           {renderLadder(comparisonExchange)}
         </div>

@@ -141,27 +141,35 @@ export const HowToUseGuideModal: React.FC<HowToUseGuideModalProps> = ({
       }}
     >
       <div className="w-full max-w-4xl max-h-[90vh] rounded-2xl bg-[#08090e] border border-white/20 shadow-[0_0_60px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden font-mono text-xs text-slate-200">
-        {/* Header Bar */}
-        <div className="flex items-center justify-between px-5 py-3.5 bg-black/90 border-b border-white/10">
-          <div className="flex items-center gap-3">
-            <div className="p-1.5 rounded-lg bg-white/10 text-white">
-              <BookOpen className="w-4 h-4" />
+        {/* Modal Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-4 sm:px-5 py-3 sm:py-3.5 bg-black/90 border-b border-white/10">
+          <div className="flex items-center justify-between sm:justify-start gap-2.5 sm:gap-3">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="p-1.5 rounded-lg bg-white/10 text-white shrink-0">
+                <BookOpen className="w-4 h-4" />
+              </div>
+              <div>
+                <h2 className="font-tech font-black text-sm sm:text-base text-white tracking-wider">
+                  ARBWIRE // GUIDE & GLOSSARY
+                </h2>
+                <p className="text-[10px] text-slate-400">
+                  Operating Instructions & Quantitative Concepts
+                </p>
+              </div>
             </div>
-            <div>
-              <h2 className="font-tech font-black text-base text-white tracking-wider">
-                ARBWIRE QUANTUM TERMINAL // USER MANUAL & GLOSSARY
-              </h2>
-              <p className="text-[10px] text-slate-400">
-                Operating Instructions & Institutional Quant Terminology Guide
-              </p>
-            </div>
+            <button
+              onClick={onClose}
+              className="sm:hidden p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all"
+            >
+              <X className="w-4 h-4" />
+            </button>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="flex items-center p-1 rounded-xl bg-slate-900 border border-white/10">
+          <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3">
+            <div className="flex items-center p-1 rounded-xl bg-slate-900 border border-white/10 w-full sm:w-auto">
               <button
                 onClick={() => setActiveTab('manual')}
-                className={`px-3 py-1 rounded-lg font-bold transition-all ${
+                className={`flex-1 sm:flex-initial px-3 py-1 rounded-lg text-xs font-bold transition-all text-center ${
                   activeTab === 'manual'
                     ? 'bg-white text-black shadow'
                     : 'text-slate-400 hover:text-white'
@@ -171,7 +179,7 @@ export const HowToUseGuideModal: React.FC<HowToUseGuideModalProps> = ({
               </button>
               <button
                 onClick={() => setActiveTab('terms')}
-                className={`px-3 py-1 rounded-lg font-bold transition-all ${
+                className={`flex-1 sm:flex-initial px-3 py-1 rounded-lg text-xs font-bold transition-all text-center ${
                   activeTab === 'terms'
                     ? 'bg-white text-black shadow'
                     : 'text-slate-400 hover:text-white'
@@ -183,7 +191,7 @@ export const HowToUseGuideModal: React.FC<HowToUseGuideModalProps> = ({
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all"
+              className="hidden sm:flex p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all"
             >
               <X className="w-4 h-4" />
             </button>
@@ -191,7 +199,7 @@ export const HowToUseGuideModal: React.FC<HowToUseGuideModalProps> = ({
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-6">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-5 space-y-4 sm:space-y-6">
           {activeTab === 'manual' ? (
             /* Workflow Manual */
             <div className="space-y-6">
