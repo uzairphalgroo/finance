@@ -1,5 +1,5 @@
-# Arbwire Quantum ⚡ Institutional Quantitative Arbitrage & Spatial Telemetry Suite
-
+#  🪙 Arbwire Quantum Arbitrager ⚡ Institutional Quantitative Arbitrage & Spatial Telemetry Suite
+## 🌐 https://arbwire.vercel.app/
 Arbwire is an open-source, high-performance quantitative workstation engineered for real-time cryptocurrency cross-venue arbitrage detection, microstructural order book analytics (VPIN / OBI), triangular arbitrage execution routing, and sub-millisecond network latency telemetry across Binance, Coinbase, and Kraken.
 
 ---
